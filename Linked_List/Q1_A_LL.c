@@ -71,7 +71,6 @@ int main()
 		case 3:
 			printf("The resulting sorted linked list is: ");
 			printList(&ll);
-			//removeAllItems(&ll);
 			break;
 		case 0:
 			removeAllItems(&ll);

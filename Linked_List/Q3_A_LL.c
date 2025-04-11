@@ -86,12 +86,18 @@ int main()
 
 void moveOddItemsToBack(LinkedList *ll)
 {
-	LinkedList *p1, *p2 = ll->head;
-
-	
-
-	
-	/* add your code here */
+	ListNode *p = ll->head;
+	int idx = 0;
+	for(int i = 0; i<ll->size; i++){
+		if((p->item)%2 != 0){
+			insertNode(ll, ll->size, p->item);
+			p = p->next;
+			removeNode(ll, idx);
+		}else{
+			p = p->next;
+			idx += 1;
+		}
+	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////////

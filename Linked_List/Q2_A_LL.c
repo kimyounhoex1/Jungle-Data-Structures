@@ -108,6 +108,7 @@ void alternateMergeLinkedList(LinkedList *ll1, LinkedList *ll2)
 	 * 한개는 l1에서 값 삽입할거
 	 * 한개는 l2에서 0번째를 가리킬 거 (리스트 자체의 head를 옮기는 방법은, 메모리 해제가 안되지 않을까 한다.)
 	 */
+	// ll1, ll2의 null인 경우를 먼저 체크를 해야한다.
 	ListNode *p1 = ll1->head;
 	ListNode *p2 = ll2->head;
 	ListNode *tempHead, *tempLink;
@@ -118,34 +119,34 @@ void alternateMergeLinkedList(LinkedList *ll1, LinkedList *ll2)
 		p1->next = ll2->head;
 		ll2->head->next = tempLink;
 		p1 = tempLink;
-		
+
 		ll2->head = tempHead;
 		p2 = ll2->head;
 	}
+}
 	// printf("------");
 	// printf("now_node = %d", p1->item);
 	// printf("----");
 	// 수정 전 코드
-	/** 
-	*  int p1_idx = 1;
-	*  int p2_idx = 0;
-	*  while(p1->next != NULL && p2->next != NULL){
-	* 	// printf("%d 번 리스트", 1);
-	* 	// printList(ll1);
-	* 	// printf("%d 번 리스트", 2);
-	* 	// printList(ll2);
-	* 	insertNode(ll1, p1_idx, p2->item);
-	* 	p1_idx += 2;
+	 
+	  	// int p1_idx = 1;
+	  	// int p2_idx = 0;
+	  	// while(p1->next != NULL && p2->next != NULL){
+	 	// // printf("%d 번 리스트", 1);
+	 	// // printList(ll1);
+	 	// // printf("%d 번 리스트", 2);
+	 	// // printList(ll2);
+	 	// insertNode(ll1, p1_idx, p2->item);
+	 	// p1_idx += 2;
 		
-	* 	p1 = p1->next;
-	* 	p2 = p2->next;
-	* 	removeNode(ll2, 0);
-	* }
-	*/
+	 	// p1 = p1->next;
+	 	// p2 = p2->next;
+	 	// removeNode(ll2, 0);
 	
+
 	
     /* add your code here */
-}
+
 
 ///////////////////////////////////////////////////////////////////////////////////
 
