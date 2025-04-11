@@ -103,6 +103,11 @@ int main()
 
 void alternateMergeLinkedList(LinkedList *ll1, LinkedList *ll2)
 {
+	
+	/**
+	 * 한개는 l1에서 값 삽입할거
+	 * 한개는 l2에서 0번째를 가리킬 거 (리스트 자체의 head를 옮기는 방법은, 메모리 해제가 안되지 않을까 한다.)
+	 */
 	ListNode *p1 = ll1->head;
 	ListNode *p2 = ll2->head;
 

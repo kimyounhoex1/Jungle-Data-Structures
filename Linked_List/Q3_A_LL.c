@@ -86,6 +86,11 @@ int main()
 
 void moveOddItemsToBack(LinkedList *ll)
 {
+	LinkedList *p1, *p2 = ll->head;
+
+	
+
+	
 	/* add your code here */
 }
 
