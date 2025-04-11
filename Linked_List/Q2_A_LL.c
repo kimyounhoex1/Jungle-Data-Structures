@@ -103,6 +103,23 @@ int main()
 
 void alternateMergeLinkedList(LinkedList *ll1, LinkedList *ll2)
 {
+	ListNode *p1 = ll1->head;
+	ListNode *p2 = ll2->head;
+
+	int p1_idx = 1;
+	int p2_idx = 0;
+	while(p1->next != NULL && p2->next != NULL){
+		// printf("%d 번 리스트", 1);
+		// printList(ll1);
+		// printf("%d 번 리스트", 2);
+		// printList(ll2);
+		insertNode(ll1, p1_idx, p2->item);
+		p1_idx += 2;
+		
+		p1 = p1->next;
+		p2 = p2->next;
+		removeNode(ll2, 0);
+	}
     /* add your code here */
 }
 
