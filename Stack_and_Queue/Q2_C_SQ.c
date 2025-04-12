@@ -110,9 +110,25 @@ int main()
 
 
 //////////////////////////////////////////////////////////////////////////////////
-
+/**
+ * (createStackFromLinkedList) Write a C function createStackFromLinkedList()
+ *  to create a stack (linked-list-based) by pushing all integers 
+ * that are storing in the linked list.
+ *  The first node of the linked list is pushed first,
+ *  and then the second node, and so on.
+ *  Remember to empty the stack at the beginning,
+ *  if the stack is not empty.
+ */
 void createStackFromLinkedList(LinkedList *ll, Stack *s)
 {
+
+	if(ll == NULL || ll->head == NULL)
+		return;
+	ListNode *cur_ll = ll->head;
+	while(cur_ll != NULL){
+		push(s, cur_ll->item);
+		cur_ll = cur_ll->next;
+	}
     /* add your code here */
 }
 
