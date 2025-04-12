@@ -104,6 +104,36 @@ int main()
 ////////////////////////////////////////////////////////////
 int balanced(char *expression)
 {
+	char *p = expression;
+	Stack *stk = malloc(sizeof(Stack));
+	push(stk, *p);
+	int idx = 1;
+	while(p[idx] != '\0')
+	{
+		printf("------");
+		printf("\n");
+		if(peek(stk) == '(' && p[idx] == ')')
+		{
+			pop(stk);
+		}
+		else if(peek(stk) == '{' && p[idx] == '}')
+		{
+			pop(stk);
+		}
+		else if(peek(stk) == '[' && p[idx] == ']')
+		{
+			pop(stk);
+		}
+		else{
+			push(stk, p[idx]);
+		}
+		idx++;
+	}
+
+	if(stk->ll.head != NULL){
+		return 1;
+	}
+	return 0;
 /* add your code here */
 }
 
