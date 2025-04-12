@@ -116,6 +116,24 @@ int main()
 
 void createQueueFromLinkedList(LinkedList *ll, Queue *q)
 {
+	/**
+	 * (createQueueFromLinkedList) Write a C function 
+	 * createQueueFromLinkedList() to create a queue
+	 *  (linked-list-based) by enqueuing all integers 
+	 * which are stored in the linked list.
+	 *  The first node of the linked list is enqueued first,
+	 *  and then the second node, and so on.
+	 *  Remember to empty the queue at the beginning,
+	 *  if the queue is not empty.
+	 */
+
+	ListNode *cur_ll = ll->head;
+	while(cur_ll!=NULL){
+		enqueue(q, cur_ll->item);
+		cur_ll = cur_ll->next;
+	}
+	
+	
 	/* add your code here */
 }
 
