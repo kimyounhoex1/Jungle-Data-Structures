@@ -134,6 +134,34 @@ void createStackFromLinkedList(LinkedList *ll, Stack *s)
 
 void removeEvenValues(Stack *s)
 {
+	Stack *buff = malloc(sizeof(Stack));
+
+	while(s->ll.head != NULL){
+		// while 안에서 주석처리 된 부분은, 다른 함수에서 메모리 해제를 안했을때는 해야하는데, 사실 여기서의 역할이 아닌 pop 자체의 역할이기 떄문에 pop에서 구현해야 하고
+		// 추가로 이미 메모리가 해제 되어있기 때문에, 에러날것임
+		// ListNode *temp = s->ll.head;
+		int val = pop(s);
+		if(val % 2 == 1){
+			push(buff, val);
+		}
+		// else{
+		// 	free(temp);
+		// }
+	}
+
+	while(buff->ll.head != NULL){
+		push(s, pop(buff));
+	}
+	//찌꺼기가 남아있을때를 방지하여 free 호출
+	// while(buff->ll.head != NULL){
+	// 	Node *temp = buff->ll.head;
+	// 	buff->ll.head = buff->ll.head->next;
+	// 	free(temp);
+	// }
+
+	// 메모리 해제는 필수
+	free(buff);
+	
 	/* add your code here */
 }
 

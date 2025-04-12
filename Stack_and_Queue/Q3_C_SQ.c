@@ -100,9 +100,15 @@ int main()
 }
 
 /////////////////////////////////////////////////////////////////////////////////
-
+/**
+ * (isStackPairwiseConsecutive) Write a C function write a function isStackPairwiseConsecutive()
+ *  that checks whether numbers in the stack are pairwise consecutive or not.
+ *  Note that the isStackPairwiseConsecutive() function only uses push() and pop()
+ *  when adding or removing integers from the stack.
+ */
 int isStackPairwiseConsecutive(Stack *s)
 {
+	
   /* add your code here */
 }
 

@@ -142,6 +142,33 @@ void createQueueFromLinkedList(LinkedList *ll, Queue *q)
 
 void removeOddValues(Queue *q)
 {
+	// ListNode *ptr = q->ll.head;
+	
+
+
+
+
+
+	/**
+	 * 내가 시도한 방법은 리스트에 담아서 넣는게 더 빠를거라 생각했는데, 그냥 새로 큐를 만들어서 분리시킨걸 그대로 다시 가져다 쓰는게 좋을듯
+	 */
+	// LinkedList *buff = malloc(sizeof(LinkedList));
+	// buff->size = 0;
+	// buff->head = NULL;
+	// int idx = 0;
+	// while(q->ll.head != NULL){
+	// 	if(q->ll.head->item % 2 == 0){
+	// 		insertNode(buff, buff->size, q->ll.head->item);
+	// 		buff->size ++;
+	// 	}
+	// 	else{
+	// 		idx++;
+	// 	}
+	// 	removeNode(buff, idx);
+	// 	dequeue(q);
+
+	// }
+	// createQueueFromLinkedList(buff, q);
 	/* add your code here */
 }
 
