@@ -109,6 +109,15 @@ int main()
 
 void recursiveReverse(Queue *q)
 {
+	if(q->ll.head == NULL){
+		return;
+	}
+	else{
+		int item = dequeue(q);
+		// reduction, 그냥 그렇게 해줄거라 믿기
+		recursiveReverse(q);
+		enqueue(q, item);
+	}
 /* add your code here */
 }
 
