@@ -87,48 +87,93 @@ int main()
 
 //////////////////////////////////////////////////////////////////////////////////
 
-int insertSortedLL(LinkedList *ll, int item)
-{
-	// 1. 첫 삽입
-	// 2. 마지막 삽입
-	// 3. 중간 삽입
-
-	ListNode *p = ll->head;
-	ListNode *prev = p;
+int insertSortedLL(LinkedList *ll, int item){
+    //Allocate and create a new node
+    ListNode *cur = ll->head;
+	ListNode *prev = NULL;
 
 	ListNode *newNode = malloc(sizeof(ListNode));
+
 	newNode->item = item;
 	newNode->next = NULL;
-	int idx = 0;
 
-	if(p==NULL){
+	int idx = 0;
+	if(ll->head == NULL){
 		ll->head = newNode;
+		ll->size ++;
 		return idx;
 	}
 
-	while(p != NULL){
-		if(p->item == item){
+	while(cur != NULL){
+		if(item == cur->item){
 			return -1;
 		}
-		if(p->item > item){
-			if(prev == p){
+		if(item < cur->item){
+			if(prev==NULL){
+				newNode->next = cur;
 				ll->head = newNode;
-				newNode->next = p;
+				ll->size ++;
 				return idx;
 			}
-			prev -> next = newNode;
-			newNode -> next = p;
-			return idx;
+			else{
+				newNode->next = cur;
+				prev->next = newNode;
+				ll->size ++;
+				return idx;
+			}
+			
 		}
-		idx+=1;
-		prev = p;
-		p = p->next;
+		idx ++;
+		prev = cur;
+		cur = cur->next;
 	}
 
 	prev->next = newNode;
-	
+	ll->size++;
 	return idx;
 }
+// int insertSortedLL(LinkedList *ll, int item)
+// {
+// 	// 1. 첫 삽입
+// 	// 2. 마지막 삽입
+// 	// 3. 중간 삽입
+
+// 	ListNode *p = ll->head;
+// 	ListNode *prev = p;
+
+// 	ListNode *newNode = malloc(sizeof(ListNode));
+// 	newNode->item = item;
+// 	newNode->next = NULL;
+// 	int idx = 0;
+
+// 	if(p==NULL){
+// 		ll->head = newNode;
+// 		return idx;
+// 	}
+
+// 	while(p != NULL){
+// 		if(p->item == item){
+// 			return -1;
+// 		}
+// 		if(p->item > item){
+// 			if(prev == p){
+// 				ll->head = newNode;
+// 				newNode->next = p;
+// 				return idx;
+// 			}
+// 			prev -> next = newNode;
+// 			newNode -> next = p;
+// 			return idx;
+// 		}
+// 		idx+=1;
+// 		prev = p;
+// 		p = p->next;
+// 	}
+
+// 	prev->next = newNode;
+	
+// 	return idx;
+// }
 
 ///////////////////////////////////////////////////////////////////////////////////
 
