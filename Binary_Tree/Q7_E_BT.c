@@ -100,8 +100,20 @@ int main()
 
 //////////////////////////////////////////////////////////////////////////////////
 
+int min(int a, int b){
+    if(a<b)
+        return a;
+    return b;
+}
 int smallestValue(BTNode *node)
 {
+    if(node==NULL)
+        return 2100000000; 
+    
+    return min(min(
+        smallestValue(node->left)
+        , smallestValue(node->right))
+        , node->item);
 	/* add your code here */
 }
 
