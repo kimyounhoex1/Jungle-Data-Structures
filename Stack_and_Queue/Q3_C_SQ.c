@@ -108,7 +108,40 @@ int main()
  */
 int isStackPairwiseConsecutive(Stack *s)
 {
+	// if문에서 만약, 안에 조건문에 int형일경우0이면 False 1이면 True
+	if(s == NULL)
+		return 0;
+	int check = 1;
 	
+	if(s->ll.size%2 != 0){
+		return 0;
+	}
+
+	ListNode *cur = s->ll.head;
+	LinkedList *buff = malloc(sizeof(LinkedList));
+	int idx = 0;
+
+	while(cur != NULL){
+		int first_item;
+		int second_item;
+
+		if(idx%2==0){
+			first_item = cur->item;
+		}
+		else{
+			second_item = cur->item;
+			printf("%d, %d\n", first_item, second_item);
+			if(first_item != second_item + 1){
+				// printf("is False");
+				return 0;
+			}
+		}
+		idx++;
+		cur = cur->next;
+	}
+	free(cur);
+	free(buff);
+	return 1;
   /* add your code here */
 }
 
