@@ -100,9 +100,24 @@ int main()
 
 //////////////////////////////////////////////////////////////////////////////////
 
+int max(int a, int b){
+    if(a>b)
+        return a;
+    return b;
+}
 int hasGreatGrandchild(BTNode *node)
 {
-	/* add your code here */
+    if(node == NULL){
+        return -1;
+    }
+    int ret_val = max(hasGreatGrandchild(node->left)
+        , hasGreatGrandchild(node->right)) +1;
+
+    if(ret_val > 2){
+        printf("%d ", node->item);
+        printf("\n");
+    }
+    return ret_val;
 }
 
 //////////////////////////////////////////////////////////////////////////////////
