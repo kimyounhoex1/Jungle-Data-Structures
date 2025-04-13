@@ -90,9 +90,19 @@ int main()
 }
 
 //////////////////////////////////////////////////////////////////////////////////
-
+// (levelOrderTraversal) 반복적인 C 함수 레벨을 작성합니다. 
+// OrderTraversal은 루트 노드 레벨부터 시작하여 큐를 사용하여 이진 트리의 레벨별 순회를 출력합니다.
+// 큐에서 정수를 추가하거나 제거할 때는 enqueue() 또는 dequeue() 연산만 사용해야 한다는 점에 유의하세요. 
+// 큐가 비어 있지 않은 경우 처음에 큐를 비워야 한다는 점을 기억하세요.
+// 함수 프로토타입은 다음과 같이 제공됩니다:
 void levelOrderTraversal(BSTNode* root)
 {
+	if(root == NULL){
+		return ;
+	}
+	printf("%d ", root->item);
+	levelOrderTraversal(root->left);
+	levelOrderTraversal(root->right);
 	
     /* add your code here */
 }
