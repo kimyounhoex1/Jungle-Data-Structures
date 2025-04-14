@@ -97,12 +97,24 @@ int main()
 // 함수 프로토타입은 다음과 같이 제공됩니다:
 void levelOrderTraversal(BSTNode* root)
 {
+	Queue *que = malloc(sizeof(Queue));
+
+	enqueue(&(que->head), &(que->tail), root);
+
 	if(root == NULL){
 		return ;
 	}
-	printf("%d ", root->item);
-	levelOrderTraversal(root->left);
-	levelOrderTraversal(root->right);
+	while(que->head != NULL){
+		BSTNode *node = dequeue(&(que->head), &(que->tail));
+		printf("%d ", node->item);
+		if(node->left != NULL){
+			enqueue(&(que->head), &(que->tail), node->left);
+		}
+		if(node->right != NULL){
+			enqueue(&(que->head), &(que->tail), node->right);
+		}
+	}
+	free(que);
 	
     /* add your code here */
 }

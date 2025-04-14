@@ -88,6 +88,7 @@ void moveOddItemsToBack(LinkedList *ll)
 {
 	if(ll == NULL) return;
 	if(ll->head == NULL) return;
+	
 	ListNode *p = ll->head;
 	int idx = 0;
 	for(int i = 0; i<ll->size; i++){
@@ -99,6 +100,7 @@ void moveOddItemsToBack(LinkedList *ll)
 			p = p->next;
 			idx += 1;
 		}
+		
 	}
 }
 
