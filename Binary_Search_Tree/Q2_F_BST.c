@@ -97,10 +97,10 @@ void inOrderTraversal(BSTNode *root)
 
 	while(stk->top != NULL){
 		BSTNode *node = pop(stk);
-		printf("%d ", node->item);
 		if(node->right != NULL){
 			push(stk, node->right);
 		}
+		printf("%d ", node->item);
 		if(node->left != NULL){
 			push(stk, node->left);
 		}
