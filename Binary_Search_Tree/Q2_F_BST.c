@@ -106,7 +106,7 @@ void inOrderTraversal(BSTNode *root)
 		}
 	}
 
-	// free(stk);
+	free(stk);
 	 /* add your code here */
 }
 
