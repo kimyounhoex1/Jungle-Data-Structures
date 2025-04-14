@@ -81,18 +81,76 @@ int main()
 			printf("Choice unknown;\n");
 			break;
 		}
-
 	}
 
 	return 0;
 }
 
 //////////////////////////////////////////////////////////////////////////////////
+/** GTP 수도코드
+1. 스택에 루트를 넣고, 이전 방문 노드를 null로 초기화한다.
 
+2. 스택이 비어있을 때까지 반복:
+    a. 현재 노드는 스택의 top이다.
+    
+    b. 이전 노드가 없거나 현재 노드의 자식이었던 경우 (하향 중):
+        - 왼쪽 자식이 있으면 왼쪽으로 이동 (스택에 push)
+        - 없으면 오른쪽 자식이 있으면 오른쪽으로 이동 (스택에 push)
+        - 둘 다 없으면 현재 노드 처리 (출력 or 저장) 후 pop
+
+    c. 이전 노드가 현재의 왼쪽 자식인 경우:
+        - 오른쪽 자식이 있으면 오른쪽으로 이동 (스택에 push)
+        - 없으면 현재 노드 처리 후 pop
+
+    d. 이전 노드가 현재의 오른쪽 자식인 경우:
+        - 현재 노드 처리 후 pop
+
+    e. 이전 노드를 현재 노드로 갱신
+ */
 void postOrderIterativeS1(BSTNode *root)
 {
-	 /* add your code here */
+	if(root == NULL)
+		return;
+
+	Stack *stk = malloc(sizeof(Stack));
+	BSTNode *prev = NULL;
+	
+	push(stk, root);
+
+	while(stk->top != NULL){
+		BSTNode *curr = peek(stk);
+		if(prev == NULL || prev->left == curr || prev->right == curr){
+			if(curr->left != NULL){
+				push(stk, curr->left);
+			}
+			else if(curr->right != NULL){
+				push(stk, curr->right);
+			}
+			else {
+				printf("%d ", curr->item);
+				pop(stk);
+			}
+		} else if (curr->left == prev){
+			if (curr->right != NULL){
+				push(stk, curr->right);
+			}
+			else {
+				printf("%d ", curr->item);
+				pop(stk);
+			}
+		} else if (curr->right == prev){
+			printf("%d ", curr->item);
+			pop(stk);
+		}
+
+		prev = curr;
+	}
+
+	free(stk);
+	free(BSTNode);
 }
+	
+	 /* add your code here */
 
 ///////////////////////////////////////////////////////////////////////////////
 
