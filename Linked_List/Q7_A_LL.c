@@ -85,22 +85,37 @@ int main()
 
 ////////////////////////////////////////////////////////////////////////
 
-void RecursiveReverse(ListNode **ptrHead)
-{
-	if((*ptrHead)->next == NULL){
+void RecursiveReverse(ListNode **ptrHead) {
+	// 1. null로 만드는 기저조건은 next가 null인경우까지 
+	// 2. next를 전부다 null로 만들기
+	// 3. 다시 이어주기(recursion으로)
+	ListNode *cur = *ptrHead;
+	
+	if (cur == NULL || cur->next == NULL) {
 		return;
 	}
-	ListNode *cur = *ptrHead;
-	ListNode *ptr = cur;
-	RecursiveReverse((*ptrHead)->next);
-	while(ptr->next != NULL){
-		ptr = ptr->next;
-	}
-	ptr->next = cur;
 	
-
-	/* add your code here */
+	ListNode *nextNode = cur->next;
+	RecursiveReverse(&nextNode);
+	
+	cur->next->next = cur;
+	cur->next = NULL;
+	*ptrHead = nextNode;
+	
 }
+/**
+ * void RecursiveReverse(ListNode **ptrHead)
+{
+    if (*ptrHead == NULL || (*ptrHead)->next == NULL)
+        return;
+    ListNode *rest = (*ptrHead)->next;
+    RecursiveReverse(&rest);
+    (*ptrHead)->next->next = *ptrHead;
+    (*ptrHead)->next = NULL;
+    *ptrHead = rest;
+}
+ */
+
 
 //////////////////////////////////////////////////////////////////////////////////
 

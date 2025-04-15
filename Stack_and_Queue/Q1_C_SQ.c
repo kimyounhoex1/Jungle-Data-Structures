@@ -144,11 +144,6 @@ void removeOddValues(Queue *q)
 {
 	// ListNode *ptr = q->ll.head;
 	
-
-
-
-
-
 	/**
 	 * 내가 시도한 방법은 리스트에 담아서 넣는게 더 빠를거라 생각했는데, 그냥 새로 큐를 만들어서 분리시킨걸 그대로 다시 가져다 쓰는게 좋을듯
 	 */
