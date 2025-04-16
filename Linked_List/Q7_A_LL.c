@@ -101,7 +101,7 @@ void RecursiveReverse(ListNode **ptrHead) {
 	cur->next->next = cur;
 	cur->next = NULL;
 	*ptrHead = nextNode;
-	
+
 }
 /**
  * void RecursiveReverse(ListNode **ptrHead)
